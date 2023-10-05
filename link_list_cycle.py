@@ -23,12 +23,31 @@ class Link:
             while(temp!=None):
                 print(temp.val,end="->")
                 temp=temp.next 
+    
+    def Update(self,pos):
+        if self.Head==None:
+            return 
+        else:
+            temp=self.Head 
+            while(temp.next!=None):
+                temp=temp.next 
+            tem=self.Head
+            if pos==1:
+                tem=self.Head 
+            else:
+                while(pos!=1):
+                    tem=tem.next 
+                    pos=pos-1
+                temp.next=tem 
                 
 res=Link()
 for i in range(0,5):
     n=int(input())
     res.insertNode(n)
+pos=int(input())
 res.Print()
+res.Update(pos)
+
     
             
                 
