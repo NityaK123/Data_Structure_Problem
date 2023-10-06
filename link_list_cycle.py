@@ -34,11 +34,29 @@ class Link:
             tem=self.Head
             if pos==1:
                 tem=self.Head 
+                temp.next=tem 
             else:
                 while(pos!=1):
                     tem=tem.next 
                     pos=pos-1
                 temp.next=tem 
+    def Cycle(self):
+        if self.Head==None:
+            return False 
+        else:
+            temp=self.Head
+            tem=self.Head
+            while(temp!=None and temp.next!=None):
+                tem=tem.next
+                temp=temp.next.next 
+                if tem==temp:
+                    break 
+            if tem==temp:
+                return True 
+            else:
+                return False
+                
+                
                 
 res=Link()
 for i in range(0,5):
@@ -46,9 +64,6 @@ for i in range(0,5):
     res.insertNode(n)
 pos=int(input())
 res.Print()
-res.Update(pos)
-
-    
-            
-                
-            
+res.Update(pos)    
+val=res.Cycle()  
+print(val)      
